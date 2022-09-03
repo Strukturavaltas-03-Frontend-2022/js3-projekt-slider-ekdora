@@ -1,0 +1,9 @@
+{
+  "name": "js3-projekt-slider-ekdora",
+  "version": "1.0.0",
+  "description": "Egy image slider-t kell készítened JavaScript segítségével.",
+  "main": "slider.js",
+  "type": "module",
+  "author": "",
+  "license": "ISC"
+}
