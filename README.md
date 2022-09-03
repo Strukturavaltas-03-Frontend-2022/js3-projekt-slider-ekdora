@@ -7,7 +7,7 @@ Egy image slider-t kell készítened JavaScript segítségével.
 - A képek adatai külön modulban legyenek
 - Egyszerre mindig csak egy kép látszódik
 - A képeknek van egy rövid megnevezése, amely a slider alsó részében megjelenik
-- A képek automatikusan, paraméterként megadható időközönként váltanak ??
+- A képek automatikusan, paraméterként megadható időközönként váltanak
 - A képek közötti átmenet valamilyen egyszerű animációval legyen megoldva, ez nem kell, hogy paraméterezhető legyen
 - A slider magassága paraméterként legyen megadható
 - A képek minden esetben töltsék ki a rendelkezésre álló helyet

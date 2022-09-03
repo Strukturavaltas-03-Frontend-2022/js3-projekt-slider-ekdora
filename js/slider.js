@@ -59,12 +59,16 @@ createBottomPager();
 
 showSlide(slideIndex);
 
-function changeSlide(direction) {
+function changeSlide(direction, auto = false) {
     showSlide(slideIndex += direction);
+    if (!auto) {
+        clearTimer();
+    }
 }
 
 function goToSlide(num) {
     showSlide(slideIndex = num);
+    clearTimer();
 }
 
 function showSlide(num) {
@@ -87,4 +91,20 @@ function showSlide(num) {
     dots[slideIndex - 1].className += " active";
 }
 
-export { changeSlide, goToSlide };
+const slideChangingInterval = 5000; //Itt lehet megadni, hogy milyen időközönként váltakozzanak a képek.
+let expectedDelay = Date.now() + slideChangingInterval;
+let schedulerId;
+
+const scheduler = () => {
+    const delta = Date.now() - expectedDelay;
+    changeSlide(1, true);
+    expectedDelay += slideChangingInterval;
+    schedulerId = setTimeout(scheduler, Math.max(0, slideChangingInterval - delta));
+};
+schedulerId = setTimeout(scheduler, slideChangingInterval);
+
+const clearTimer = () => {
+    clearInterval(schedulerId);
+    expectedDelay = Date.now() + slideChangingInterval;
+    schedulerId = setTimeout(scheduler, slideChangingInterval);
+}
